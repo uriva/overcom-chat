@@ -1,0 +1,9 @@
+{
+  "name": "node-project",
+  "version": "0.0.1",
+  "description": "node part of the project",
+  "main": "main.js",
+  "dependencies": {
+    "overcom": "http://github.com/uriva/overcom"
+  }
+}
