@@ -16,7 +16,7 @@ json-socket@^0.3.0:
 
 "overcom@http://github.com/uriva/overcom":
   version "1.0.0"
-  resolved "http://github.com/uriva/overcom#a851b3febe3a6bcdbc7d645eecb9bac89551dcf6"
+  resolved "http://github.com/uriva/overcom#ee7252252150c540e84b84a83e79b6448d48a107"
   dependencies:
     await-timeout "^0.2.0"
     colors "^1.2.1"

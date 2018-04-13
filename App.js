@@ -12,7 +12,15 @@ import nodejs from 'nodejs-mobile-react-native';
 export default class App extends Component {
   constructor() {
     super();
-    this.state = { text: 'initial sent', recieved: 'initial recieved' };
+    this.state = {
+      settings: {
+        publicKey: '',
+        privateKey: '',
+        app: ''
+      },
+      recieved: null,
+      internal: { type: '', payload: '', recipient: '' }
+    };
     nodejs.start('main.js');
     nodejs.channel.addListener(
       'message',
@@ -22,26 +30,76 @@ export default class App extends Component {
       this
     );
   }
-  submit() {
-    nodejs.channel.send(this.state.text);
-  }
   render() {
-    const { text, recieved } = this.state;
+    const { settings, internal, recieved } = this.state;
+    const { publicKey, privateKey, app } = settings;
+    const { payload, type, recipient } = internal;
     return (
       <View>
-        <Text>{recieved}</Text>
-        <TextInput
-          value={text}
-          onChangeText={text => {
-            this.setState({ text });
-          }}
-        />
-        <Button
-          onPress={() => {
-            this.submit();
-          }}
-          title="submit"
-        />
+        <View>
+          <Text>{JSON.stringify(settings)}</Text>
+          <TextInput
+            placeholder="app id"
+            value={app}
+            onChangeText={app => {
+              this.setState({ settings: { app, publicKey, privateKey } });
+            }}
+          />
+          <TextInput
+            placeholder="public key"
+            value={publicKey}
+            onChangeText={publicKey => {
+              this.setState({ settings: { app, publicKey, privateKey } });
+            }}
+          />
+          <TextInput
+            placeholder="private key"
+            value={privateKey}
+            onChangeText={privateKey => {
+              this.setState({ settings: { app, publicKey, privateKey } });
+            }}
+          />
+          <Button
+            onPress={() => {
+              nodejs.channel.send({ type: 'init', publicKey, privateKey });
+            }}
+            title="Init"
+          />
+        </View>
+        <View>
+          <Text>Received:</Text>
+          <Text>{JSON.stringify(recieved)}</Text>
+        </View>
+        <View>
+          <Text>{JSON.stringify(internal)}</Text>
+          <TextInput
+            placeholder="recipient"
+            value={recipient}
+            onChangeText={recipient => {
+              this.setState({ internal: { recipient, type, payload } });
+            }}
+          />
+          <TextInput
+            placeholder="message type"
+            value={type}
+            onChangeText={type => {
+              this.setState({ internal: { recipient, type, payload } });
+            }}
+          />
+          <TextInput
+            placeholder="message payload"
+            value={payload}
+            onChangeText={payload => {
+              this.setState({ internal: { recipient, type, payload } });
+            }}
+          />
+          <Button
+            onPress={() => {
+              nodejs.channel.send(internal);
+            }}
+            title="Send"
+          />
+        </View>
       </View>
     );
   }
