@@ -652,10 +652,6 @@ atob@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.0.tgz#ab2b150e51d7b122b9efc8d7340c06b6c41076bc"
 
-await-timeout@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/await-timeout/-/await-timeout-0.2.0.tgz#4ec5c246bc59ed3d5232186a1344001def50f7c4"
-
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -1565,10 +1561,6 @@ color-name@^1.1.1:
 color-support@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
-
-colors@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/colors/-/colors-1.2.1.tgz#f4a3d302976aaf042356ba1ade3b1a2c62d9d794"
 
 combined-stream@1.0.6, combined-stream@^1.0.5, combined-stream@~1.0.5:
   version "1.0.6"
@@ -3266,10 +3258,6 @@ json-schema@0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
 
-json-socket@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/json-socket/-/json-socket-0.3.0.tgz#f4b953c685bb8e8bd0b72438f5208d9a0799ae07"
-
 json-stable-stringify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz#9a759d39c5f2ff503fd5300646ed445f88c4f9af"
@@ -4110,15 +4098,6 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-"overcom@http://github.com/uriva/overcom":
-  version "1.0.0"
-  resolved "http://github.com/uriva/overcom#ee7252252150c540e84b84a83e79b6448d48a107"
-  dependencies:
-    await-timeout "^0.2.0"
-    colors "^1.2.1"
-    json-socket "^0.3.0"
-    random-port "^0.1.0"
-
 p-finally@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-finally/-/p-finally-1.0.0.tgz#3fbcfb15b899a44123b34b6dcc18b724336a2cae"
@@ -4333,10 +4312,6 @@ qs@~6.4.0:
 qs@~6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
-
-random-port@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/random-port/-/random-port-0.1.0.tgz#bfcdc640b32df824acd43711f1ac5b7943f54453"
 
 randomatic@^1.1.3:
   version "1.1.7"

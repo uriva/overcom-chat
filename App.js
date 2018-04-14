@@ -61,7 +61,9 @@ export default class App extends Component {
           />
           <Button
             onPress={() => {
-              nodejs.channel.send({ type: 'init', publicKey, privateKey });
+              nodejs.channel.send(
+                JSON.stringify({ type: 'init', app, publicKey, privateKey })
+              );
             }}
             title="Init"
           />
@@ -95,7 +97,7 @@ export default class App extends Component {
           />
           <Button
             onPress={() => {
-              nodejs.channel.send(internal);
+              nodejs.channel.send(JSON.stringify(internal));
             }}
             title="Send"
           />

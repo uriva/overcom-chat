@@ -2,9 +2,9 @@ const bridge = require('rn-bridge');
 const node = require('overcom');
 
 let nodeInstance = null;
-// Echo every message received from react-native.
 bridge.channel.on('message', async msg => {
   console.log('in bridge', msg);
+  msg = JSON.parse(msg);
   bridge.channel.send(String(new Date()));
   if (msg.type == 'init') {
     nodeInstance = await node.makeNode({
@@ -14,10 +14,13 @@ bridge.channel.on('message', async msg => {
       bootstrapPhysicalAddresses: '',
       app: msg.app
     });
+    bridge.channel.send(`Node initialized ${!!nodeInstance}.`);
   } else {
-    nodeInstance.send({});
+    const status = await nodeInstance.sendMessage(
+      { recipeint: msg.recipeint, type: msg.type, payload: msg.payload },
+      3,
+      1000
+    );
+    bridge.channel.send(`Message status ${status}.`);
   }
 });
-
-// Inform react-native node is initialized.
-bridge.channel.send('Node was initialized.');
