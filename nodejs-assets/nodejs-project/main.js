@@ -17,7 +17,7 @@ bridge.channel.on('message', async msg => {
     bridge.channel.send(`Node initialized ${!!nodeInstance}.`);
   } else {
     const status = await nodeInstance.sendMessage(
-      { recipeint: msg.recipeint, type: msg.type, payload: msg.payload },
+      { recipient: msg.recipient, type: msg.type, payload: msg.payload },
       3,
       1000
     );
