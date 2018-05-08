@@ -11,7 +11,9 @@ bridge.channel.on('message', async msg => {
       logger: console.log,
       publicKey: msg.publicKey,
       privateKey: msg.privateKey,
-      bootstrapPhysicalAddresses: '',
+      bootstrapPhysicalAddresses: {
+        '00': { ip: '77.139.204.81', port: 33331 }
+      },
       app: msg.app
     });
     bridge.channel.send(`Node initialized ${!!nodeInstance}.`);

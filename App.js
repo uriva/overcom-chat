@@ -14,12 +14,12 @@ export default class App extends Component {
     super();
     this.state = {
       settings: {
-        publicKey: '',
+        publicKey: '01',
         privateKey: '',
-        app: ''
+        app: '0'
       },
       recieved: null,
-      internal: { type: '', payload: '', recipient: '' }
+      internal: { type: 'some-message-type', payload: 'hi', recipient: '00' }
     };
     nodejs.start('main.js');
     nodejs.channel.addListener(
